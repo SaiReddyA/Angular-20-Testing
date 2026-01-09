@@ -1,0 +1,15 @@
+<p>test works!</p>
+<h1>{{UserName}}</h1>
+<h1>{{count}}</h1>
+<input type="number" name="usernumber" id="usernumber" [(ngModel)]="count" >
+<button type="button" [disabled]="isDisabled" (click)="DisplayMessage()">Click me </button>
+
+@if(isDisabled){
+    <h1>if conditon</h1>
+
+} @else if(elseIfcase) {
+
+    <h1>else if conditon</h1>
+} @else{
+    <h1> else </h1>
+}
