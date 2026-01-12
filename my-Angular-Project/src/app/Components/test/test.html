@@ -1,15 +1,47 @@
 <p>test works!</p>
-<h1>{{UserName}}</h1>
-<h1>{{count}}</h1>
+<h1>{{UserName | uppercase}}</h1>
+<h1>{{UserName | lowercase}}</h1>
+<h1>{{count | currency: 'USD'}}</h1>
 <input type="number" name="usernumber" id="usernumber" [(ngModel)]="count" >
-<button type="button" [disabled]="isDisabled" (click)="DisplayMessage()">Click me </button>
+<button type="button"  (click)="DisplayMessage()">Click me </button>
 
 @if(isDisabled){
     <h1>if conditon</h1>
 
 } @else if(elseIfcase) {
 
-    <h1>else if conditon</h1>
+    <h1 appFontcolorChange >else if conditon </h1>
 } @else{
     <h1> else </h1>
+}
+
+
+@if(isDisabled){
+    <h1>if conditon</h1>
+
+} 
+
+
+{{today | date : 'dd-MM-yyyy HH:mm:ss a'}}
+
+
+<br>
+<br>
+<br>
+<table style="border: 5px;background-color: aqua;">
+    <tr *ngFor="let item of objectsList"> 
+        <td>{{item.id}}</td>
+        <td>{{item.name | prefix}}</td>
+    </tr>
+</table>
+
+@for (item of number; track $index) {
+    {{item}}
+}
+
+@for (item of objectsList; track $index) {
+    {{item.id}}
+    {{item.name}}
+} @empty {
+    <h1> no data</h1>
 }

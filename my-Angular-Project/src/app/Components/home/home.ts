@@ -8,6 +8,9 @@ import { Component } from '@angular/core';
 })
 export class Home {
 
-  
+  name: string = 'sai reddy';
+  price: number = 25000;
+  today: Date = new Date();
+  text: string = 'AngularPipesExample';
 
 }
