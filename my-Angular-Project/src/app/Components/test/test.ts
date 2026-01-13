@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { FontcolorChange } from './fontcolor-change';
 import { PrefixPipe } from './prefix-pipe';
@@ -23,11 +23,18 @@ export class Test implements OnChanges {
   number : any[] = [1, 2, 3, 4]
   objectsList : UserTest[] = [ {id:1, name: 'test1'}, {id:2, name: 'test2'}]
 
+  @Input() inputFromParentcomp !: string
+  @Output() outputValue = new EventEmitter<string>();
+
+   constructor(){
+   }
+
   DisplayMessage():void {
-    //alert('clicked');
+   
     this.UserName = `sai ${this.count}..teste`
     debugger
     this.count++
+    this.outputValue.emit('child to parent passing information');
   }
 
     ngOnChanges(changes: SimpleChanges): void {
