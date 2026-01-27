@@ -1,5 +1,5 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterOutlet, RouterLinkWithHref, RouterLinkActive, Router } from '@angular/router';
 import { Home } from './Components/home/home';
 import { Test } from './Components/test/test';
 import { Communication } from './Components/communication/communication';
@@ -7,7 +7,7 @@ import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Test, Communication, FormsModule],
+  imports: [RouterOutlet, FormsModule, RouterLinkWithHref],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
@@ -22,4 +22,10 @@ export class App {
     this.childpassing = inputvalue
   }
   
+
+  constructor(private route:Router){}
+
+  NavigateTo(){
+    this.route.navigate(['contact'])
+  }
 }

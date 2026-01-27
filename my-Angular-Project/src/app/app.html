@@ -1,11 +1,11 @@
-<h1>Test angular</h1>
-<!-- <app-home></app-home> -->
-<!-- <app-test></app-test> -->
+<!-- <h1>Test angular</h1>
+<!-- <app-home></app-home> - ->
+<!-- <app-test></app-test> - ->
  <input type="text" name="test" [(ngModel)]="currenttab" id="test" > 
 
 <h1>childpassing {{childpassing}}</h1>
  @if(currenttab === 'test'){
-    <!-- <app-test  inputFromParentcomp="user enter value"></app-test> -->
+    <!-- <app-test  inputFromParentcomp="user enter value"></app-test> - ->
     <app-test  [inputFromParentcomp]="parenttochildpassing"  
         (outputValue)="childcomponentcalled($event)"
        ></app-test>
@@ -13,6 +13,16 @@
 
  @if(currenttab === 'communication'){
     <app-communication></app-communication>
- }
+ } -->
+
+<nav>
+   <a href="/about"> about</a>
+   &nbsp;
+   <a href="/contact"> Contact</a>
+ &nbsp;
+
+   <p (click)="NavigateTo()" > Contact</p>   &nbsp; &nbsp;
+   <a routerLink="/contact"> Contact</a>
+</nav>
 
 <router-outlet />
