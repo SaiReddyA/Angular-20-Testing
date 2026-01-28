@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { RouterLinkWithHref, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-about',
-  imports: [FormsModule],
+  imports: [FormsModule, RouterOutlet, RouterLinkWithHref],
   templateUrl: './about.html',
   styleUrl: './about.css',
 })

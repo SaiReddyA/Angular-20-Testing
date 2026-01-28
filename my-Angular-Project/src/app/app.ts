@@ -24,8 +24,4 @@ export class App {
   
 
   constructor(private route:Router){}
-
-  NavigateTo(){
-    this.route.navigate(['contact'])
-  }
 }

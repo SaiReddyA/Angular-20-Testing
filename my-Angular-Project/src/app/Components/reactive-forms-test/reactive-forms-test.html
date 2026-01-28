@@ -1,0 +1,25 @@
+<p>reactive-forms-test works!</p>
+
+<!-- <form action="" class="form" [formGroup]="formGroup">
+    Name <input type="text" name="" id="" class="form-control" formControlName="name"> <br>
+    Email <input type="email" name="" id="" class="form-control" formControlName="email"> <br>
+    Password <input type="password" name="" id="" class="form-control" formControlName="password"> <br>
+    <button type="button" class="btn btn-primary" (click)="Submit()">Submit</button>
+</form> -->
+
+<form action="" class="form" [formGroup]="formGroup" (ngSubmit)="Submit()">
+    Name * <input type="text" name="" id="" class="form-control" formControlName="name"  placeholder="enter your name"> <br>
+    
+    @if(formGroup.get('name')?.touched && !formGroup.get('name')?.dirty ){
+        <span class="text-danger"> Name is required. </span> <br>
+    }
+     @if(formGroup.get('name')?.errors?.['maxLength']){
+        <span class="text-danger"> Name is maxLength. </span> <br>
+    }
+
+    Email * <input type="email" name="" id="" class="form-control" formControlName="email"> <br>
+    Password * <input type="password" name="" id="" class="form-control" formControlName="password"> <br>
+    <button type="reset" class="btn btn-secondary" >reset</button> &nbsp; &nbsp; &nbsp;
+    <button type="submit" class="btn btn-primary"  >Submit</button>
+    <!-- <button type="submit" class="btn btn-primary" [disabled]="formGroup.invalid" >Submit</button> -->
+</form>

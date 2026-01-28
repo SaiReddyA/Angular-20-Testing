@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
-  imports: [],
+  imports: [ReactiveFormsModule],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })
@@ -13,4 +14,12 @@ export class Home {
   today: Date = new Date();
   text: string = 'AngularPipesExample';
 
+constructor(private fb: FormBuilder) {
+  
+}
+
+ 
+
+  submit() {
+  }
 }

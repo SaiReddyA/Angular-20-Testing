@@ -15,7 +15,7 @@
     <app-communication></app-communication>
  } -->
 
-<nav>
+<!-- <nav>
    <a href="/about"> about</a>
    &nbsp;
    <a href="/contact"> Contact</a>
@@ -23,6 +23,38 @@
 
    <p (click)="NavigateTo()" > Contact</p>   &nbsp; &nbsp;
    <a routerLink="/contact"> Contact</a>
+</nav> -->
+<!-- HEADER -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow">
+  <div class="container">
+    <a class="navbar-brand fw-bold" routerLink="/">Angular 20</a>
+
+    <div class="collapse navbar-collapse show">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/about" routerLinkActive="active">
+            About
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/contact" routerLinkActive="active">
+            Contact
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
 </nav>
 
-<router-outlet />
+<!-- MAIN CONTENT -->
+<main class="container my-4 min-vh-100">
+  <router-outlet></router-outlet>
+</main>
+
+<!-- FOOTER -->
+<footer class="bg-dark text-light text-center py-3 mt-auto">
+  <small>
+    © 2026 Angular 20 App | Built with Bootstrap
+  </small>
+</footer>
