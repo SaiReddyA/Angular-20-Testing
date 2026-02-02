@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { noSpaceValidator } from './noSpaceValidator';
+import { Reactive } from '../../Services/reactive';
 
 @Component({
   selector: 'app-reactive-forms-test',
@@ -10,7 +12,7 @@ import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } 
 export class ReactiveFormsTest {
 
   formGroup!: FormGroup
-  constructor(private fb:FormBuilder){
+  constructor(private fb:FormBuilder, public reactive:Reactive){
     //basic
     //  this.formGroup =  this.fb.group({
     //   name: '', 
@@ -26,10 +28,11 @@ export class ReactiveFormsTest {
 
      //with validations
       this.formGroup =  this.fb.group({
-        name: ['', [Validators.required, Validators.maxLength(5)]],
-        email: ['', Validators.required ],
+        name: ['', [Validators.required, Validators.maxLength(5), noSpaceValidator]],
+        email: ['vsd', [Validators.required, noSpaceValidator, Validators.maxLength(5)]],
         password:['', Validators.required],
      })
+     
   }
 
   Submit(){
@@ -37,5 +40,7 @@ export class ReactiveFormsTest {
     if(!this.formGroup.invalid){
       console.log(this.formGroup.value)
     }
+    console.log(this.reactive.GetData())
   }
+  
 }

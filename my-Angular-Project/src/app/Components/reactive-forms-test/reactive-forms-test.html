@@ -16,10 +16,26 @@
      @if(formGroup.get('name')?.errors?.['maxLength']){
         <span class="text-danger"> Name is maxLength. </span> <br>
     }
+     @if(formGroup.get('name')?.errors?.['noSpace']){
+        <span class="text-danger"> Name should not contain space. </span> <br>
+    }
+     @if(formGroup.get('name')?.errors?.['atsymbol']){
+        <span class="text-danger"> Name should not @ symbol. </span> <br>
+    }
 
     Email * <input type="email" name="" id="" class="form-control" formControlName="email"> <br>
+        @if(formGroup.get('email')?.touched  && formGroup.get('email')?.errors?.['required']){
+        <span class="text-danger"> Email is required. </span> <br>
+    }
+      @if(formGroup.get('email')?.errors?.['noSpace']){
+        <span class="text-danger"> Email should not contain space. </span> <br>
+    }
+
+
     Password * <input type="password" name="" id="" class="form-control" formControlName="password"> <br>
     <button type="reset" class="btn btn-secondary" >reset</button> &nbsp; &nbsp; &nbsp;
     <button type="submit" class="btn btn-primary"  >Submit</button>
     <!-- <button type="submit" class="btn btn-primary" [disabled]="formGroup.invalid" >Submit</button> -->
 </form>
+
+{{this.reactive.GetData()}}
