@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { noSpaceValidator } from './noSpaceValidator';
 import { Reactive } from '../../Services/reactive';
@@ -9,7 +9,7 @@ import { Reactive } from '../../Services/reactive';
   templateUrl: './reactive-forms-test.html',
   styleUrl: './reactive-forms-test.css',
 })
-export class ReactiveFormsTest {
+export class ReactiveFormsTest implements OnInit{
 
   formGroup!: FormGroup
   constructor(private fb:FormBuilder, public reactive:Reactive){
@@ -33,6 +33,32 @@ export class ReactiveFormsTest {
         password:['', Validators.required],
      })
      
+  }
+
+  ngOnInit(): void {
+    this.reactive.GetPromicesData().then((res:any) =>{
+            console.log(res, 'promises');
+    })
+
+    // this.reactive.GetPromicesData().subscribe((res:any) =>{
+    //         console.log(res, 'subscribe');
+    // })
+
+     this.reactive.GetObserbaleData().subscribe((res:any) =>{
+            console.log(res, 'observable');
+    })
+
+    this.reactive.behavioursubject.subscribe((res:any) => {
+      console.log(res, 'inside')
+    })
+    
+    this.reactive.UpdateBhaviourSubject();
+
+    this.reactive.usersubject$.subscribe(((res:any)=> {
+      console.log('res', res)
+    }))
+
+    this.reactive.updateSubject();
   }
 
   Submit(){
